@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.1.3",
     "@rainbow-me/rainbowkit": "^0.8.1",
     "@types/form-data": "^2.5.0",
     "@types/node-fetch": "^2.6.3",

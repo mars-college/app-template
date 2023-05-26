@@ -191,7 +191,7 @@ const ConnectedPage = () => {
           {activeItem === "39" && (
             <GeneratorInterface mediaType="text" generatorName="complete" />
           )} */}
-          hello world
+          hello world :)
         </Content>
         <Footer style={{ textAlign: "center" }}></Footer>
       </Layout>
