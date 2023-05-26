@@ -34,8 +34,8 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Eden App</title>
-        <meta name="description" content="Eden API interface" />
+        <title>App Template</title>
+        <meta name="description" content="App template interface" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainPageContent />

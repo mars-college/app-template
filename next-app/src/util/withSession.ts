@@ -17,7 +17,7 @@ declare module "iron-session" {
 
 const sessionOptions = {
   password: process.env.COOKIE_SECRET as string,
-  cookieName: "eden_app",
+  cookieName: process.env.COOKIE_NAME as string,
   ttl: 15 * 24 * 3600,
   cookieOptions: {
     secure: process.env.NODE_ENV === "production",

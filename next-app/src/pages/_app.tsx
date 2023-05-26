@@ -1,12 +1,10 @@
 import React, { useState, useContext } from "react";
 import type { AppProps } from "next/app";
-import { GeneratorState } from "context/AppContext";
 import AppContext from "context/AppContext";
 import "styles/globals.css";
 import WalletProvider from "providers/WalletProvider";
 
 function App({ Component, pageProps }: AppProps) {
-  const [generators, setGenerators] = useState<Record<string, GeneratorState>>({});
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [isNewUser, setIsNewUser] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
@@ -20,8 +18,6 @@ function App({ Component, pageProps }: AppProps) {
         setIsNewUser,
         username,
         setUsername,
-        generators,
-        setGenerators,
       }}
     >
       <WalletProvider>

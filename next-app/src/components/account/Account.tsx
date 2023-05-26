@@ -31,8 +31,7 @@ const AccountTab = () => {
         </div>
       ) : (
         <div>
-          <p>Eden uses a signature to verify that you are the owner of this wallet.</p>
-          <p>Please sign-in to get your account details.</p>
+          <p>Please sign-in to verify that you are the owner of this wallet.</p>
           <EthereumAuth onSignIn={handleSignIn} isButton={true} />
         </div>
       )}

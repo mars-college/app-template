@@ -1,7 +1,7 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 import React, { useState, useContext, useEffect } from "react";
-import { ToolOutlined, UserOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 import { Layout, Menu, Modal, theme } from "antd";
 import type { MenuProps } from "antd";
 import axios from "axios";
@@ -11,11 +11,6 @@ import AppContext from "context/AppContext";
 
 import Account from "components/account/Account";
 import MannaBalance from "components/account/MannaBalance";
-// import Profile from "components/Profile";
-// import Uploader from "components/Uploader";
-// import CharacterBuilder from "components/CharacterBuilder";
-// import Voice2Image from "components/Voice2Image";
-// import GeneratorInterface from "components/GeneratorInterface";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -46,10 +41,10 @@ const WelcomePage = () => {
             <a href="https://eden.art">
               <img src="logo192.png" style={{width: "75%"}}/>  
             </a>
-            <h1>Welcome to Eden</h1>
+            <h1>Welcome</h1>
             <div style={{color: "#666"}}>
               <h3>
-                To learn more about Eden, visit <a href="https://eden.art">the homepage</a>.
+                We're happy to have you.
               </h3>
             </div>
             <div style={{color: "#666"}}>
@@ -73,27 +68,12 @@ const ConnectedPage = () => {
   const {token: { colorBgContainer }} = theme.useToken();
 
   const items: MenuItem[] = [
-    getItem('User', 'sub1', <UserOutlined />, [
+    getItem('User', 'sub1', <UserOutlined rev={""}/>, [
       getItem('My account', '11'),
-      getItem('My creations', '12'),
-    ]),    
-    getItem("Apps", "sub2", <ToolOutlined />, [
-      getItem('Voice2Image', '21'),
-      getItem('Uploader', '22'),
-      getItem('Character Builder', '23'),
+      getItem('Hello world', '12'),
     ]),
-    getItem("Generators", "sub3", <ToolOutlined />, [
-      getItem("Create", "31"),
-      getItem("Interpolate", "32"),
-      getItem("Real2Real", "33"),
-      getItem("Remix", "34"),
-      getItem("Interrogate", "35"),
-      getItem("Lora train", "36"),
-      getItem("TTS", "37"),
-      getItem("Wav2Lip", "38"),
-      getItem("Complete", "39"),
-    ])
   ];
+  
 
   const handleMenuClick = (e: any) => {
     setActiveItem(e.key);
@@ -159,39 +139,7 @@ const ConnectedPage = () => {
           }}
         >
           {activeItem === "11" && <Account />}
-          {/*{activeItem === "12" && <Profile />}
-          {activeItem === "21" && <Voice2Image />}
-          {activeItem === "22" && <Uploader />}
-          {activeItem === "23" && <CharacterBuilder />}
-
-          {activeItem === "31" && (
-            <GeneratorInterface mediaType="image" generatorName="create" />
-          )}
-          {activeItem === "32" && (
-            <GeneratorInterface mediaType="video" generatorName="interpolate" />
-          )}
-          {activeItem === "33" && (
-            <GeneratorInterface mediaType="video" generatorName="real2real" />
-          )}
-          {activeItem === "34" && (
-            <GeneratorInterface mediaType="image" generatorName="remix" />
-          )}
-          {activeItem === "35" && (
-            <GeneratorInterface mediaType="text" generatorName="interrogate" />
-          )}
-          {activeItem === "36" && (
-            <GeneratorInterface mediaType="lora" generatorName="lora" />
-          )}
-          {activeItem === "37" && (
-            <GeneratorInterface mediaType="audio" generatorName="tts" />
-          )}
-          {activeItem === "38" && (
-            <GeneratorInterface mediaType="video" generatorName="wav2lip" />
-          )}
-          {activeItem === "39" && (
-            <GeneratorInterface mediaType="text" generatorName="complete" />
-          )} */}
-          hello world :)
+          {activeItem === "12" && <>Hello world</>}
         </Content>
         <Footer style={{ textAlign: "center" }}></Footer>
       </Layout>
