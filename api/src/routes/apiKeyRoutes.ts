@@ -1,13 +1,13 @@
 import { Type } from "@sinclair/typebox";
 import { FastifyPluginAsync } from "fastify";
 
-import { isAuth } from "../../middleware/authMiddleware";
+import { isAuth } from "../middleware/authMiddleware";
 
 import { 
   createApiKey,
   deleteApiKey,
   getApiKeys, 
-} from "../../controllers/user/apiKeyController";
+} from "../controllers/apiKeyController";
 
 
 const apiKeyRoutes: FastifyPluginAsync = async (server) => {

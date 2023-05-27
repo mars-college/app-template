@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { randomId } from "../../lib/util";
-import { ApiKey } from "../../models/ApiKey";
+import { randomId } from "../lib/util";
+import { ApiKey } from "../models/ApiKey";
 
 
 export const createApiKey = async (request: FastifyRequest, reply: FastifyReply) => {

@@ -23,11 +23,18 @@ const handler = async (req: ApiRequest, res: NextApiResponse) => {
 
     const eden = new EdenClient();
 
+    console.log("login")
+    console.log(message)
+    console.log(address)
+    console.log(signature)
     const result = await eden.loginEth(
       message, 
       signature, 
       address
     );
+
+    console.log("result");
+    console.log(result);
 
     if (result.error) {
       return res.status(500).json({ error: result.error });

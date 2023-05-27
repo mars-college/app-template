@@ -1,6 +1,4 @@
 import { Document, Schema, model } from 'mongoose';
-import { CreationDocument } from './Creation';
-import { CollectionDocument } from './Collection';
 
 export interface UserSchema {
   userId: string;
@@ -19,8 +17,6 @@ export interface UserSchema {
   twitterId?: string;
   instagramId?: string;
   githubId?: string;
-  creations: CreationDocument[];
-  collections: CollectionDocument[];
 }
 
 export interface UserDocument extends UserSchema, Document {}
@@ -83,14 +79,6 @@ const user = new Schema<UserDocument>({
   githubId: {
     type: String,
   },
-  creations: [{
-    type: Schema.Types.ObjectId,
-    ref: 'creations',
-  }],
-  collections: [{
-    type: Schema.Types.ObjectId,
-    ref: 'collections',
-  }],
 });
 
 user.pre<UserDocument>('update', function(next) {

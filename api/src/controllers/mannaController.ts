@@ -1,10 +1,9 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { randomId } from "../../lib/util";
+import { randomId } from "../lib/util";
 
-import { Manna } from "../../models/Manna";
-import { MannaVoucher } from "../../models/MannaVoucher";
-import { Transaction } from "../../models/Transaction";
-import { User } from "../../models/User";
+import { Manna } from "../models/Manna";
+import { MannaVoucher } from "../models/MannaVoucher";
+import { User } from "../models/User";
 
 
 interface ModifyMannaRequest extends FastifyRequest {
@@ -48,16 +47,9 @@ export const modifyManna = async (request: FastifyRequest, reply: FastifyReply) 
     newManna = manna;
   }
 
-  const transaction = new Transaction({
-    manna: newManna._id,
-    amount,
-  })
-  await transaction.save();
-
   return reply.status(200).send({
     userId,
     balance: newManna.balance,
-    transactionId: transaction._id
   });
 };
 
@@ -176,18 +168,11 @@ export const redeemMannaVoucher = async (request: FastifyRequest, reply: Fastify
     await manna.save();
   }
 
-  const transaction = new Transaction({
-    manna: mannaId,
-    amount: mannaVoucher.balance,
-  })
-  await transaction.save();
-
   mannaVoucher.used = true;
   mannaVoucher.redeemedBy = user._id;
   mannaVoucher.save();
 
   return reply.status(200).send({
     balance: newBalance,
-    transactionId: transaction._id
   });  
 }

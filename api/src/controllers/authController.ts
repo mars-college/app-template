@@ -1,8 +1,8 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import ethers from "ethers";
 
-import { User } from "../../models/User";
-import { Manna } from "../../models/Manna";
+import { User } from "../models/User";
+import { Manna } from "../models/Manna";
 
 
 interface LoginRequest extends FastifyRequest {
@@ -16,6 +16,9 @@ interface LoginRequest extends FastifyRequest {
 export const login = async (request: FastifyRequest, reply: FastifyReply) => {
   const { body: { address, signature, message } } = request as LoginRequest;
 
+
+  console.log("LOGIN!!!")
+
   if (!address || !signature || !message) {
     return reply.status(400).send({
       message: "Missing address, signature or message",
@@ -28,6 +31,8 @@ export const login = async (request: FastifyRequest, reply: FastifyReply) => {
       message: "Signature is invalid",
     });
   }
+
+  console.log("lets finD")
 
   let authUser = await User.findOne({
     userId: address,

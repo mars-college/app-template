@@ -30,10 +30,6 @@ And API.
 	pnpm install
 
 
-mongo admin:martians
-mongo martian:phobos
-ssh -L 27017:localhost:27017 gene@157.245.172.123
-
 # Building
 
 Run the Next app in dev mode
