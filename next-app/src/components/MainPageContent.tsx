@@ -12,6 +12,8 @@ import AppContext from "context/AppContext";
 import Account from "components/account/Account";
 import MannaBalance from "components/account/MannaBalance";
 
+import LittleMartian from "components/LittleMartian";
+
 const { Header, Content, Footer, Sider } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
@@ -38,7 +40,7 @@ const WelcomePage = () => {
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh", minWidth: "50vh", maxHeight: "100vh", maxWidth: "100vw", textAlign: "center" }}>
         <div style={{ textAlign: "center" }}>
           <center>
-            <a href="https://eden.art">
+            <a href="https://mars.college">
               <img src="logo192.png" style={{width: "75%"}}/>  
             </a>
             <h1>Welcome</h1>
@@ -71,6 +73,7 @@ const ConnectedPage = () => {
     getItem('User', 'sub1', <UserOutlined rev={""}/>, [
       getItem('My account', '11'),
       getItem('Hello world', '12'),
+      getItem('Martian', '13'),
     ]),
   ];
   
@@ -97,7 +100,7 @@ const ConnectedPage = () => {
         closable={false}
         cancelButtonProps={{ style: { display: "none" } }}
       >
-        A new traveler has arrived to Eden. You have been granted 1,000 Manna. Welcome to the Garden of Artificial Delights!
+        A new traveler has arrived to Mars. You have been granted 1,000 Manna.
       </Modal>
       <Sider
         collapsible
@@ -106,7 +109,7 @@ const ConnectedPage = () => {
       >
         <a href="https://eden.art">
           <center>
-            <img src="logo192.png" style={{width: "66.6%"}}/>
+            <img src="logo192.png" style={{width: "66.6%", marginTop: "10px", marginBottom: "10px"}}/>
           </center>
         </a>
         <Menu
@@ -140,6 +143,7 @@ const ConnectedPage = () => {
         >
           {activeItem === "11" && <Account />}
           {activeItem === "12" && <>Hello world</>}
+          {activeItem === "13" && <LittleMartian/>}
         </Content>
         <Footer style={{ textAlign: "center" }}></Footer>
       </Layout>

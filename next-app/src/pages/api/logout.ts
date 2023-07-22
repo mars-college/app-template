@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { withSessionRoute } from "util/withSession";
-import { SiweMessage } from 'siwe'
-import { EdenClient } from 'eden-sdk';
+// import { SiweMessage } from 'siwe'
+// import { EdenClient } from '@edenlabs/eden-sdk';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { message, signature, address } = req.body;
